@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "374102167593",
+    "project_id": "ensaf-book-app",
+    "storage_bucket": "ensaf-book-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:374102167593:android:6b4138a655b6d34909cc38",
+        "android_client_info": {
+          "package_name": "ma.ensaf.mybookmanagerapplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDV1-_U7mwiMXJK4lqBv74ukfUevgIUegc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
