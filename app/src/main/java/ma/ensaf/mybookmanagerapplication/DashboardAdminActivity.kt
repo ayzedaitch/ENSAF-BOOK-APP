@@ -2,6 +2,8 @@ package ma.ensaf.mybookmanagerapplication
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -31,7 +33,25 @@ class DashboardAdminActivity : AppCompatActivity() {
         loadCategories()
 
         //search
+        binding.searchEt.addTextChangedListener(object : TextWatcher{
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+                TODO("Not yet implemented")
+            }
 
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                //called as and when user type anything
+                try{
+                    adapterCategory.filter.filter(s)
+                }
+                catch (e : Exception){
+
+                }
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                TODO("Not yet implemented")
+            }
+        })
 
         //handle click, Logout
         binding.logoutBtn.setOnClickListener {
