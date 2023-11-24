@@ -61,10 +61,9 @@ class CategoryAddActivity : AppCompatActivity() {
         val timestamp = System.currentTimeMillis()
 
         //setup data to add in firebase db
-        val hashMap =
-            HashMap<String, Any>() //second param is Any; because the value could be of any type
-        hashMap["id"] =
-            "$timestamp" //put in string quotes because timestamp is in double, we need in string for id hashMap["category"] = category
+        val hashMap = HashMap<String, Any>() //second param is Any; because the value could be of any type
+        hashMap["id"] = "$timestamp" //put in string quotes because timestamp is in double, we need in string for id
+        hashMap["category"] = category
         hashMap["timestamp"] = timestamp
         hashMap["uid"] = "${firebaseAuth.uid}"
 
