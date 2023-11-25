@@ -63,6 +63,9 @@ class DashboardAdminActivity : AppCompatActivity() {
         binding.addCategoryBtn.setOnClickListener {
             startActivity(Intent(this,CategoryAddActivity::class.java))
         }
+        binding.addPdfFab.setOnClickListener {
+            startActivity(Intent(this,PdfAddActivity::class.java))
+        }
 
     }
 
