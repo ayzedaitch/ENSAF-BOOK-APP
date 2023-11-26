@@ -1,5 +1,6 @@
 package ma.ensaf.mybookmanagerapplication
 
+import android.app.AlertDialog
 import android.app.ProgressDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -47,6 +48,47 @@ class PdfEditActivity : AppCompatActivity() {
         progressDialog.setCanceledOnTouchOutside(false)
 
         loadCategories()
+
+        //handle click, goback
+        binding.backBtn.setOnClickListener {
+            onBackPressed()
+        }
+
+        //handle click, pick category
+        binding.categoryTv.setOnClickListener {
+            categoryDialog()
+        }
+
+        //handle click, begin update
+        binding.submitBtn.setOnClickListener {
+
+        }
+    }
+
+    private var selectedCategoryId = ""
+    private var selectedCategoryTitle = ""
+    private fun categoryDialog() {
+        /*Show dialog to pick the category of pdf/book. we already got the categories*/
+
+        //make string array from arraylost of string
+        val categoriesArray = arrayOfNulls<String>(categoryTitleArrayList.size)
+        for (i in categoryTitleArrayList.indices) {
+            categoriesArray[i]= categoryTitleArrayList[i]
+        }
+
+        //alert dialog
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Choose Category")
+            .setItems(categoriesArray){dialog, position ->
+                //handle click, save clicked category id and title
+                selectedCategoryId= categoryIdArrayList[position]
+                selectedCategoryTitle = categoryTitleArrayList[position]
+
+                //set to textview
+                binding.categoryTv.text = selectedCategoryTitle
+
+            }
+            .show() // show dialog
     }
 
     private fun loadCategories() {
