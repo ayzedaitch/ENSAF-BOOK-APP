@@ -4,20 +4,28 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Filter
+import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
 import ma.ensaf.mybookmanagerapplication.databinding.RowPdfAdminBinding
 
-class AdapterPdfAdmin :RecyclerView.Adapter<AdapterPdfAdmin.HolderPdfAdmin>{
+class AdapterPdfAdmin :RecyclerView.Adapter<AdapterPdfAdmin.HolderPdfAdmin>, Filterable{
     //context
     private var context: Context
     //arraylist to hold pdfs
-    private var pdfArrayList: ArrayList<ModelPdf>
+    public var pdfArrayList: ArrayList<ModelPdf>
+
+    private val filterList: ArrayList<ModelPdf>
     //viewBidning
     private lateinit var binding: RowPdfAdminBinding
+
+    //filter object
+    var filter: FilterPdfAdmin? = null
 
     constructor(context: Context, pdfArrayList: ArrayList<ModelPdf>) : super() {
         this.context = context
         this.pdfArrayList = pdfArrayList
+        this.filterList = pdfArrayList
     }
 
 
@@ -60,6 +68,13 @@ class AdapterPdfAdmin :RecyclerView.Adapter<AdapterPdfAdmin.HolderPdfAdmin>{
 
     }
 
+    override fun getFilter(): Filter {
+        if (filter == null) {
+            filter = FilterPdfAdmin(filterList, this)
+        }
+        return filter as FilterPdfAdmin
+    }
+
     /*View Holder class for row_pdf_admin.xml*/
     inner class HolderPdfAdmin(itemView: View) : RecyclerView.ViewHolder(itemView){
         //UI Views of row_pdf_admin.xml
@@ -72,4 +87,5 @@ class AdapterPdfAdmin :RecyclerView.Adapter<AdapterPdfAdmin.HolderPdfAdmin>{
         val dateTv = binding.dateTv
         val moreBtn = binding.moreBtn
     }
+
 }
