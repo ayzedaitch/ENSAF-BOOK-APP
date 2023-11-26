@@ -34,6 +34,7 @@ class DashboardAdminActivity : AppCompatActivity() {
 
         //search
         binding.searchEt.addTextChangedListener(object : TextWatcher{
+
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
 
             }
