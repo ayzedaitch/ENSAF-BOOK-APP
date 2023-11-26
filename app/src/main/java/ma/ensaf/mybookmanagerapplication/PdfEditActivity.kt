@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
+import android.widget.Toast
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -61,8 +62,59 @@ class PdfEditActivity : AppCompatActivity() {
 
         //handle click, begin update
         binding.submitBtn.setOnClickListener {
-
+            validateData()
         }
+    }
+
+    private var title = ""
+    private var description = ""
+    private fun validateData() {
+        //get data
+        title = binding.titleEt.text.toString().trim()
+        description = binding.descriptionEt.text.toString().trim()
+
+        //validate data
+        if (title.isEmpty()){
+            Toast.makeText(this, "Enter title", Toast.LENGTH_SHORT).show()
+        }
+        else if (description.isEmpty()){
+            Toast.makeText(this,"Enter Description", Toast.LENGTH_SHORT).show()
+        }
+        else if (selectedCategoryId.isEmpty()){
+            Toast.makeText(this,"Pick Category", Toast.LENGTH_SHORT).show()
+        }
+        else{
+            updatePdf()
+        }
+    }
+
+    private fun updatePdf() {
+        Log.d(TAG,"updatePdf: Starting updating pdf info...")
+
+        //show progress
+        progressDialog.setMessage("Updating book info")
+        progressDialog.show()
+
+        //setup data to update to db, spellings of keys must be same as in firebase
+        val hashMap = HashMap<String, Any>()
+        hashMap["title"] = "$title"
+        hashMap["description"] = "$description"
+        hashMap["categoryId"] = "$selectedCategoryId"
+
+        //start updating
+        val ref = FirebaseDatabase.getInstance().getReference("Books")
+        ref.child(bookId)
+            .updateChildren(hashMap)
+            .addOnSuccessListener {
+                progressDialog.dismiss()
+                Log.d(TAG,"updatePdf: Updated successfully...")
+                Toast.makeText(this,"Updated successfully...", Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener {e->
+                Log.d(TAG,"updatePdf: Failed to update due to ${e.message}")
+                progressDialog.dismiss()
+                Toast.makeText(this,"Failed to update due to ${e.message}", Toast.LENGTH_SHORT).show()
+            }
     }
 
     private var selectedCategoryId = ""
