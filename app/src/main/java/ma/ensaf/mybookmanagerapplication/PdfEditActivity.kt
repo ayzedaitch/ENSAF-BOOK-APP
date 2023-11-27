@@ -49,6 +49,7 @@ class PdfEditActivity : AppCompatActivity() {
         progressDialog.setCanceledOnTouchOutside(false)
 
         loadCategories()
+        loadBookInfo()
 
         //handle click, goback
         binding.backBtn.setOnClickListener {
@@ -64,6 +65,10 @@ class PdfEditActivity : AppCompatActivity() {
         binding.submitBtn.setOnClickListener {
             validateData()
         }
+    }
+
+    private fun loadBookInfo() {
+        TODO("Not yet implemented")
     }
 
     private var title = ""
