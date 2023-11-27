@@ -68,7 +68,43 @@ class PdfEditActivity : AppCompatActivity() {
     }
 
     private fun loadBookInfo() {
-        TODO("Not yet implemented")
+        Log.d(TAG,"LoadBook Info: Loading book info")
+
+        val ref = FirebaseDatabase.getInstance().getReference("Books")
+        ref.child(bookId)
+            .addListenerForSingleValueEvent(object : ValueEventListener{
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    //get book info
+                    selectedCategoryId= snapshot.child("categoryId").value.toString()
+                    val description= snapshot.child("description").value.toString()
+                    val title = snapshot.child("title").value.toString()
+
+                    //set to views
+                    binding.titleEt.setText(title)
+                    binding.descriptionEt.setText(description)
+
+                    //load book category info using categoryId
+                    Log.d(TAG,"onDataChange: Loading book category info")
+                    val refBookCategory = FirebaseDatabase.getInstance().getReference ("Categories")
+                    refBookCategory.child(selectedCategoryId)
+                        .addListenerForSingleValueEvent(object : ValueEventListener{
+                            override fun onDataChange(snapshot: DataSnapshot) {
+                                //get category
+                                val category = snapshot.child("category").value
+                                //set to textview
+                                binding.categoryTv.text = category.toString()
+                            }
+
+                            override fun onCancelled(error: DatabaseError) {
+
+                            }
+                        })
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+
+                }
+            })
     }
 
     private var title = ""
