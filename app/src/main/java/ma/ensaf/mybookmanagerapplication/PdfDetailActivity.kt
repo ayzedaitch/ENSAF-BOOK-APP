@@ -23,6 +23,9 @@ class PdfDetailActivity : AppCompatActivity() {
         //get book id from intent
         bookId= intent.getStringExtra("bookId")!!
 
+        //increment book view count, whenever this page starts
+        MyApplication.incrementBookViewCount (bookId)
+
         LoadBookDetails()
 
         //handle backbutton click, goback
