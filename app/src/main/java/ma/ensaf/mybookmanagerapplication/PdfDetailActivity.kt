@@ -1,21 +1,38 @@
 package ma.ensaf.mybookmanagerapplication
 
 import android.content.Intent
+import android.Manifest
+import android.app.ProgressDialog
+import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Environment
+import android.util.Log
 import android.view.LayoutInflater
+import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.google.firebase.storage.FirebaseStorage
 import ma.ensaf.mybookmanagerapplication.databinding.ActivityPdfDetailBinding
+import java.io.FileOutputStream
 
 class PdfDetailActivity : AppCompatActivity() {
 
     //view binding
     private lateinit var binding:ActivityPdfDetailBinding
+
     //book id
     private var bookId= ""
+
+    private var bookTitle = ""
+    private var bookUrl = ""
+
+    private lateinit var progressDialog: ProgressDialog
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPdfDetailBinding.inflate(layoutInflater)
@@ -23,6 +40,10 @@ class PdfDetailActivity : AppCompatActivity() {
 
         //get book id from intent
         bookId= intent.getStringExtra("bookId")!!
+
+        val progressDialog = ProgressDialog(this)
+        progressDialog.setTitle("Please wait ... ")
+        progressDialog.setCanceledOnTouchOutside(false)
 
         //increment book view count, whenever this page starts
         MyApplication.incrementBookViewCount (bookId)
@@ -40,6 +61,7 @@ class PdfDetailActivity : AppCompatActivity() {
         }
     }
 
+
     private fun LoadBookDetails() {
         //Books > bookId> Details
         val ref = FirebaseDatabase.getInstance().getReference ("Books")
@@ -51,9 +73,9 @@ class PdfDetailActivity : AppCompatActivity() {
                     val description = "${snapshot.child("description").value}"
                     val downloadsCount = "${snapshot.child("downloadsCount").value}"
                     val timestamp = "${snapshot.child("timestamp").value}"
-                    val title = "${snapshot.child("title").value}"
+                    bookTitle = "${snapshot.child("title").value}"
                     val uid = "${snapshot.child("uid").value}"
-                    val url = "${snapshot.child("url").value}"
+                    bookUrl = "${snapshot.child("url").value}"
                     val viewsCount = "${snapshot.child("viewsCount").value}"
 
                     //format date
@@ -61,12 +83,12 @@ class PdfDetailActivity : AppCompatActivity() {
                     //load pdf category
                     MyApplication.loadCategory(categoryId,binding.categoryTv)
                     //load pdf thumbnail, pages count
-                    MyApplication.LoadPdfFromUrlSinglePage("$url","$title", binding.pdfView, binding.progressBar, binding.pagesTv)
+                    MyApplication.LoadPdfFromUrlSinglePage("$bookUrl","$bookTitle", binding.pdfView, binding.progressBar, binding.pagesTv)
                     //load pdf size
-                    MyApplication.LoadPdfSize("$url","$title", binding.sizeTv)
+                    MyApplication.LoadPdfSize("$bookUrl","$bookTitle", binding.sizeTv)
 
                     //set data
-                    binding.titleTv.text = title
+                    binding.titleTv.text = bookTitle
                     binding.descriptionTv.text = description
                     binding.viewsTv.text = viewsCount
                     binding.downloadsTv.text = downloadsCount
