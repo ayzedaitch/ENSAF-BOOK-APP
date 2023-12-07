@@ -1,5 +1,6 @@
 package ma.ensaf.mybookmanagerapplication
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -31,6 +32,11 @@ class PdfDetailActivity : AppCompatActivity() {
         //handle backbutton click, goback
         binding.backBtn.setOnClickListener {
             onBackPressed()
+        }
+        binding.readBookBtn.setOnClickListener {
+            val intent = Intent(this, PdfViewActivity::class.java)
+            intent.putExtra("bookId", bookId)
+            startActivity(intent)
         }
     }
 

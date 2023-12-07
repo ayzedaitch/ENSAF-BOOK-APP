@@ -83,21 +83,11 @@
                 android:textColorHint="@color/gray01"/>
             </com.google.android.material.textfield.TextInputLayout>
 
-            <TextView
-                android:id="@+id/forgotTv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/passwordTil"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="5dp"
-                android:padding="5dp"
-                android:text="Forgot Password?"
-                android:textColor="@color/gray02"/>
             <Button
                 android:id="@+id/loginBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/forgotTv"
+                android:layout_below="@id/passwordTil"
                 android:text="Login"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/shape_button01"
