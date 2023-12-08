@@ -9,8 +9,6 @@ import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
-import ma.ensaf.mybookmanagerapplication.activities.PdfDetailActivity
-import ma.ensaf.mybookmanagerapplication.activities.PdfEditActivity
 import ma.ensaf.mybookmanagerapplication.databinding.RowPdfAdminBinding
 
 class AdapterPdfAdmin :RecyclerView.Adapter<AdapterPdfAdmin.HolderPdfAdmin>, Filterable{

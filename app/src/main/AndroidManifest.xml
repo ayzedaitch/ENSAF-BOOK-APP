@@ -15,40 +15,40 @@
         android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
         tools:targetApi="31">
         <activity
-            android:name=".activities.PdfViewActivity"
+            android:name=".PdfViewActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.PdfDetailActivity"
+            android:name=".PdfDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.PdfEditActivity"
+            android:name=".PdfEditActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.PdfListAdminActivity"
+            android:name=".PdfListAdminActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.PdfAddActivity"
+            android:name=".PdfAddActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.CategoryAddActivity"
+            android:name=".CategoryAddActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.DashboardAdminActivity"
+            android:name=".DashboardAdminActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.DashboardUserActivity"
+            android:name=".DashboardUserActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.LoginActivity"
+            android:name=".LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.RegisterActivity"
+            android:name=".RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.MainActivity"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.SplashActivity"
+            android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

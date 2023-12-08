@@ -1,4 +1,4 @@
-package ma.ensaf.mybookmanagerapplication.activities
+package ma.ensaf.mybookmanagerapplication
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,8 +10,6 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import ma.ensaf.mybookmanagerapplication.AdapterCategory
-import ma.ensaf.mybookmanagerapplication.ModelCategory
 import ma.ensaf.mybookmanagerapplication.databinding.ActivityDashboardAdminBinding
 
 class DashboardAdminActivity : AppCompatActivity() {

@@ -1,4 +1,4 @@
-package ma.ensaf.mybookmanagerapplication.activities
+package ma.ensaf.mybookmanagerapplication
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +7,8 @@ import com.google.firebase.auth.FirebaseAuth
 import ma.ensaf.mybookmanagerapplication.databinding.ActivityDashboardUserBinding
 
 class DashboardUserActivity : AppCompatActivity() {
+
+
     //view bidning
     private lateinit var binding: ActivityDashboardUserBinding
     //firebase auth

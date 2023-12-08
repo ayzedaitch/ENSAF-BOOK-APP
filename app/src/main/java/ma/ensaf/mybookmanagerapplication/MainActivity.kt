@@ -1,4 +1,4 @@
-package ma.ensaf.mybookmanagerapplication.activities
+package ma.ensaf.mybookmanagerapplication
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

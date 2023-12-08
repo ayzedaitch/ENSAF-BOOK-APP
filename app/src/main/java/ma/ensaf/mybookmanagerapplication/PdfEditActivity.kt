@@ -1,4 +1,4 @@
-package ma.ensaf.mybookmanagerapplication.activities
+package ma.ensaf.mybookmanagerapplication
 
 import android.app.AlertDialog
 import android.app.ProgressDialog

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/back01"
-    tools:context=".activities.DashboardUserActivity">
+    tools:context=".DashboardUserActivity">
 
 
 
@@ -42,25 +42,26 @@
             android:background="@android:color/transparent"/>
     </RelativeLayout>
 
-    <!--Tabs-->
+
+    <!--Tabs: Show Book Categories-->
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/toolbarRl"
-        android:layout_margin="5dp"
         android:background="@android:color/transparent"
-        app:tabBackground="@drawable/tab_selector"
+        android:layout_margin="5dp"
         app:tabIndicatorFullWidth="false"
+        app:tabBackground="@drawable/tab_selector"
         app:tabIndicatorHeight="0dp"
-        app:tabMode="scrollable"
-        app:tabUnboundedRipple="false"/>
+        android:layout_below="@+id/toolbarRl"
+        app:tabMode="scrollable"/>
 
-    <!--ViewPager: Swipe/Show/Change fragments-->
+    <!--View Pager: Show categorized books in fragment-->
     <androidx.viewpager.widget.ViewPager
-        android:id="@+id/viewPager"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tabLayout"/>
+    android:id="@+id/viewPager"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/tabLayout"/>
+
 
 </RelativeLayout>

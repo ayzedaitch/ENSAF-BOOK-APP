@@ -6,6 +6,7 @@ class ModelCategory {
     var category: String = ""
     var timestamp: Long = 0
     var uid:String=""
+
     //empty constructor, required by firebase
     constructor()
     //parameterized constructor
@@ -15,4 +16,7 @@ class ModelCategory {
         this.timestamp = timestamp
         this.uid = uid
     }
+
+
+
 }

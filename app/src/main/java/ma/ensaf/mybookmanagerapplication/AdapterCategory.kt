@@ -13,7 +13,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.FirebaseDatabase
-import ma.ensaf.mybookmanagerapplication.activities.PdfListAdminActivity
 import ma.ensaf.mybookmanagerapplication.databinding.RowCategoryBinding
 
 class AdapterCategory : RecyclerView.Adapter<AdapterCategory.HolderCategory> , Filterable{
