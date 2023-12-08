@@ -1,4 +1,4 @@
-package ma.ensaf.mybookmanagerapplication
+package ma.ensaf.mybookmanagerapplication.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +9,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import ma.ensaf.mybookmanagerapplication.R
 
 class SplashActivity : AppCompatActivity() {
     private lateinit var firebaseAuth: FirebaseAuth

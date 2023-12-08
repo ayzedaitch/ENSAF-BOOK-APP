@@ -1,4 +1,4 @@
-package ma.ensaf.mybookmanagerapplication
+package ma.ensaf.mybookmanagerapplication.activities
 
 import android.app.AlertDialog
 import android.app.ProgressDialog
@@ -18,6 +18,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
+import ma.ensaf.mybookmanagerapplication.ModelCategory
 import ma.ensaf.mybookmanagerapplication.databinding.ActivityPdfAddBinding
 
 class PdfAddActivity : AppCompatActivity() {

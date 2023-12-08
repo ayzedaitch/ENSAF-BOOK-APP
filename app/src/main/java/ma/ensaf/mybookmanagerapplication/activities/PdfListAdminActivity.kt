@@ -1,4 +1,4 @@
-package ma.ensaf.mybookmanagerapplication
+package ma.ensaf.mybookmanagerapplication.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,6 +9,8 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import ma.ensaf.mybookmanagerapplication.AdapterPdfAdmin
+import ma.ensaf.mybookmanagerapplication.ModelPdf
 import ma.ensaf.mybookmanagerapplication.databinding.ActivityPdfListAdminBinding
 
 class PdfListAdminActivity : AppCompatActivity() {
