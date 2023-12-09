@@ -62,10 +62,10 @@ class DashboardAdminActivity : AppCompatActivity() {
 
         //handle click , start add category page
         binding.addCategoryBtn.setOnClickListener {
-            startActivity(Intent(this,CategoryAddActivity::class.java))
+            startActivity(Intent(this, CategoryAddActivity::class.java))
         }
         binding.addPdfFab.setOnClickListener {
-            startActivity(Intent(this,PdfAddActivity::class.java))
+            startActivity(Intent(this, PdfAddActivity::class.java))
         }
 
     }
